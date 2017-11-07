@@ -1,6 +1,5 @@
 {
-  "name": "wowza/wse-rest-library-php",
-  "homepage": "https://www.wowza.com",
+  "name": "rignet/wse-rest-library-php",
   "autoload": {
     "psr-4": {
       "Com\\Wowza\\": "src/"
