@@ -1,6 +1,6 @@
 <?php
 //
-// This code and all components (c) Copyright 2006 - 2016, Wowza Media Systems, LLC. All rights reserved.
+// This code and all components (c) Copyright 2006 - 2018, Wowza Media Systems, LLC. All rights reserved.
 // This code is licensed pursuant to the Wowza Public License version 1.0, available at www.wowza.com/legal.
 //
 
@@ -15,12 +15,12 @@ class SmilFile extends Wowza
     public function __construct(Settings $settings, $appName)
     {
         parent::__construct($settings);
-        $this->restURI = $this->getHost() . "/servers/" . $this->getServerInstance() . "/vhosts/" . $this->getVHostInstance() . "/applications/" . $appName . "/smilfiles";
+        $this->restURI = $this->getHost() . '/servers/' . $this->getServerInstance() . '/vhosts/' . $this->getVHostInstance() . '/applications/' . $appName . '/smilfiles';
     }
 
     public function create($fileName, $streams)
     {
-        $this->restURI = $this->restURI . "/" . $fileName;
+        $this->restURI = $this->restURI . '/' . $fileName;
         $this->smilStreams = $streams;
 
         $response = $this->sendRequest($this->preparePropertiesForRequest(self::class), []);
@@ -31,7 +31,7 @@ class SmilFile extends Wowza
     public function get($fileName)
     {
         $this->addSkipParameter('smilStreams', true);
-        $this->restURI = $this->restURI . "/" . $fileName;
+        $this->restURI = $this->restURI . '/' . $fileName;
 
         return $this->sendRequest($this->preparePropertiesForRequest(self::class), [], self::VERB_GET);
     }
